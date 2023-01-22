@@ -28,7 +28,7 @@ class CountMinSketchImpl(CountMinSketch):
         indices: List[int] = self._compute_indices(item)
 
         for i in range(self.depth):
-            self.sketch[i][indices[i]] -= 1
+            self.sketch[i][indices[i]] -= times
 
     def _compute_indices(self, item) -> List[int]:
         return [int(hash_value % self.width) for hash_value in self._compute_hashes(item)]
